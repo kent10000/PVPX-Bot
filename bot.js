@@ -6,6 +6,8 @@ bot.commands = new Discord.Collection();
 
 // Requires all dependencies
 
+client.login(process.env.BOT_TOKEN)
+
 fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
 
@@ -26,6 +28,7 @@ bot.on("ready", async () => {
     console.log(`{bot.user.username} is online!`)
     bot.user.setActivity("PVPX Users!", {type: "WATCHING"});
 });
+
 
 bot.on("message", async message => {
     if(message.author.bot) return;
